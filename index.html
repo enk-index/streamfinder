@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Releasemap | Global Releases Tracker</title>
+    <title>ReleaseMap | Global Streaming Tracker</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -16,9 +16,7 @@
             --glass: rgba(10, 10, 15, 0.8);
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         body {
             margin: 0;
@@ -64,11 +62,8 @@
             cursor: pointer;
         }
 
-        .logo span {
-            color: var(--accent);
-        }
+        .logo span { color: var(--accent); }
 
-        /* --- NAV SEARCH BOX (HIDDEN ON HOME) --- */
         .nav-search {
             display: none;
             width: 320px;
@@ -91,9 +86,7 @@
             background: rgba(255, 255, 255, 0.12);
         }
 
-        .show-nav-search {
-            display: block;
-        }
+        .show-nav-search { display: block; }
 
         /* --- GRID & CARD --- */
         .movie-grid {
@@ -125,10 +118,7 @@
             background: #111;
         }
 
-        .card-meta {
-            padding: 15px;
-            font-size: 0.85rem;
-        }
+        .card-meta { padding: 15px; font-size: 0.85rem; }
 
         .media-badge {
             position: absolute;
@@ -143,29 +133,16 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
-        .badge-movie {
-            background: var(--accent);
-            color: white;
-        }
-
-        .badge-tv {
-            background: #0070f3;
-            color: white;
-        }
+        .badge-movie { background: var(--accent); color: white; }
+        .badge-tv { background: #0070f3; color: white; }
 
         /* --- DETAIL PAGE --- */
-        #detailPage {
-            display: none;
-            min-height: 100vh;
-            position: relative;
-        }
+        #detailPage { display: none; min-height: 100vh; position: relative; }
 
         .full-backdrop {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
+            top: 0; left: 0;
+            width: 100%; height: 100vh;
             background-size: cover;
             background-position: center;
             z-index: -2;
@@ -174,10 +151,8 @@
 
         .full-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
+            top: 0; left: 0;
+            width: 100%; height: 100vh;
             background: linear-gradient(to bottom, rgba(5, 5, 8, 0.3) 0%, rgba(5, 5, 8, 1) 85%);
             z-index: -1;
         }
@@ -197,9 +172,7 @@
             transition: 0.3s;
         }
 
-        .btn-back:hover {
-            background: var(--accent);
-        }
+        .btn-back:hover { background: var(--accent); }
 
         .detail-wrapper {
             display: flex;
@@ -217,11 +190,7 @@
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
         }
 
-        .detail-info {
-            flex: 1;
-            min-width: 300px;
-            padding-top: 10px;
-        }
+        .detail-info { flex: 1; min-width: 300px; padding-top: 10px; }
 
         .detail-title {
             font-size: clamp(2.5rem, 5vw, 4rem);
@@ -244,10 +213,7 @@
             display: inline-block;
         }
 
-        .genre-pill:hover {
-            background: var(--accent);
-            border-color: white;
-        }
+        .genre-pill:hover { background: var(--accent); border-color: white; }
 
         .streaming-container {
             background: var(--glass);
@@ -266,11 +232,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .p-logo {
-            width: 55px;
-            height: 55px;
-            border-radius: 14px;
-        }
+        .p-logo { width: 55px; height: 55px; border-radius: 14px; }
 
         .c-badge {
             background: rgba(229, 9, 20, 0.1);
@@ -284,10 +246,7 @@
             gap: 6px;
         }
 
-        .c-badge span {
-            color: #fff;
-            font-weight: 400;
-        }
+        .c-badge span { color: #fff; font-weight: 400; }
 
         /* --- HERO HEADER --- */
         .hero-header {
@@ -320,10 +279,7 @@
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
         }
 
-        #searchInput:focus {
-            border-color: var(--accent);
-            transform: scale(1.02);
-        }
+        #searchInput:focus { border-color: var(--accent); transform: scale(1.02); }
 
         .pagination {
             display: flex;
@@ -343,9 +299,7 @@
             font-weight: bold;
         }
 
-        .pg-btn:hover:not(:disabled) {
-            background: var(--accent);
-        }
+        .pg-btn:hover:not(:disabled) { background: var(--accent); }
 
         footer {
             background: #08080a;
@@ -361,22 +315,17 @@
     <nav class="main-nav">
         <div class="container nav-container">
             <a href="#" class="logo" onclick="location.reload()">RELEASE<span>MAP</span></a>
-
             <div id="navSearchWrapper" class="nav-search">
                 <input type="text" id="navSearchInput" placeholder="Quick search titles...">
             </div>
-
-            <div style="font-size: 0.8rem; color: var(--sub-text); font-weight: 600; letter-spacing: 1px;">GLOBAL
-                RELEASE TRACKER</div>
+            <div style="font-size: 0.8rem; color: var(--sub-text); font-weight: 600; letter-spacing: 1px;">GLOBAL RELEASE TRACKER</div>
         </div>
     </nav>
 
     <main class="container">
         <div id="homePage">
             <header class="hero-header">
-                <div
-                    style="display: inline-block; padding: 6px 15px; border-radius: 30px; background: rgba(229, 9, 20, 0.1); color: var(--accent); font-size: 0.75rem; font-weight: 900; letter-spacing: 2px; margin-bottom: 25px; border: 1px solid rgba(229, 9, 20, 0.2);">
-                    STREAMING SEARCH ENGINE</div>
+                <div style="display: inline-block; padding: 6px 15px; border-radius: 30px; background: rgba(229, 9, 20, 0.1); color: var(--accent); font-size: 0.75rem; font-weight: 900; letter-spacing: 2px; margin-bottom: 25px; border: 1px solid rgba(229, 9, 20, 0.2);">DIGITAL & STREAMING TRACKER</div>
                 <h1 class="hero-title">Everything.<br>Everywhere.</h1>
                 <div style="max-width: 750px; margin: 50px auto 0; position: relative;">
                     <input type="text" id="searchInput" placeholder="Search movies, TV shows, or genres...">
@@ -384,8 +333,7 @@
             </header>
 
             <div id="dynamicSection" style="display:none">
-                <div
-                    style="display: flex; justify-content: space-between; align-items: baseline; border-left: 4px solid var(--accent); padding-left: 15px; margin-bottom: 30px;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; border-left: 4px solid var(--accent); padding-left: 15px; margin-bottom: 30px;">
                     <h2 id="dynamicLabel" style="margin:0; font-size: 1.5rem;">Results</h2>
                     <span id="totalCountDisplay" style="color: var(--sub-text); font-size: 0.9rem;"></span>
                 </div>
@@ -398,14 +346,11 @@
             </div>
 
             <div id="defaultContent">
-                <h2
-                    style="border-left: 4px solid var(--accent); padding-left: 15px; margin-bottom: 30px; font-size: 1.5rem;">
-                    Trending Now</h2>
-                <div id="trendingGrid" class="movie-grid"></div>
-                <h2
-                    style="border-left: 4px solid var(--accent); padding-left: 15px; margin: 50px 0 30px; font-size: 1.5rem;">
-                    Now Playing</h2>
-                <div id="newGrid" class="movie-grid"></div>
+                <h2 style="border-left: 4px solid var(--accent); padding-left: 15px; margin-bottom: 30px; font-size: 1.5rem;">New Digital Releases</h2>
+                <div id="digitalGrid" class="movie-grid"></div>
+
+                <h2 style="border-left: 4px solid var(--accent); padding-left: 15px; margin: 50px 0 30px; font-size: 1.5rem;">Popular TV Series</h2>
+                <div id="popularTVGrid" class="movie-grid"></div>
             </div>
         </div>
 
@@ -415,19 +360,16 @@
             <div class="btn-back" onclick="goHome()">← Back to Search</div>
             <div id="detailHero" class="detail-wrapper"></div>
             <div class="streaming-container">
-                <h3
-                    style="margin-top: 0; color: var(--sub-text); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;">
-                    Streaming Availability by Region</h3>
+                <h3 style="margin-top: 0; color: var(--sub-text); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;">Streaming Availability by Region</h3>
                 <div id="dProviders"></div>
             </div>
         </div>
     </main>
 
     <footer>
-        <div class="container"
-            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-            <div class="logo" onclick="location.reload()">Release<span>map</span></div>
-            <div style="color: var(--sub-text); font-size: 0.9rem;">© 2025 Releasemap. Data by TMDB.</div>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <div class="logo" onclick="location.reload()">RELEASE<span>MAP</span></div>
+            <div style="color: var(--sub-text); font-size: 0.9rem;">© 2025 ReleaseMap. Data by TMDB.</div>
         </div>
     </footer>
 
@@ -439,13 +381,13 @@
         let currentType = 'search', currentQuery = '', currentGenreId = '', currentPage = 1, activeMedia = 'movie';
 
         window.onload = () => {
-            renderSimpleList(`https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`, 'trendingGrid', 6);
-            renderSimpleList(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`, 'newGrid', 12);
+            const today = new Date().toISOString().split('T')[0];
+            const digitalUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&include_adult=false&language=en-US&page=1&release_date.lte=${today}&sort_by=primary_release_date.desc&with_release_type=4|5|6&vote_count.gte=10`;
+            
+            renderSimpleList(digitalUrl, 'digitalGrid', 12);
+            renderSimpleList(`https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}`, 'popularTVGrid', 12);
 
-            // Search Utama
             document.getElementById('searchInput').oninput = (e) => triggerSearch(e.target.value);
-
-            // Search Navbar
             document.getElementById('navSearchInput').oninput = (e) => {
                 const val = e.target.value;
                 if (val.length > 2) {
@@ -470,9 +412,11 @@
         }
 
         async function renderSimpleList(url, gridId, count) {
-            const res = await fetch(url);
-            const data = await res.json();
-            displayResults(data.results.slice(0, count), gridId);
+            try {
+                const res = await fetch(url);
+                const data = await res.json();
+                displayResults(data.results.slice(0, count), gridId);
+            } catch (e) { console.error("Fetch Error:", e); }
         }
 
         async function fetch24Results() {
@@ -511,13 +455,18 @@
             items.forEach(m => {
                 if (!m.poster_path) return;
                 const type = m.media_type || (m.title ? 'movie' : 'tv');
+                const fullDate = m.release_date || m.first_air_date || '';
+                const year = fullDate ? `(${fullDate.split('-')[0]})` : '';
+
                 const card = document.createElement('div');
                 card.className = 'card';
                 card.innerHTML = `
                     <div class="media-badge ${type === 'movie' ? 'badge-movie' : 'badge-tv'}">${type === 'movie' ? 'Movie' : 'Series'}</div>
                     <img src="${IMG + m.poster_path}" loading="lazy">
                     <div class="card-meta">
-                        <div style="font-weight:bold; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">${m.title || m.name}</div>
+                        <div style="font-weight:bold; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">
+                            ${m.title || m.name} <span style="color:var(--sub-text); font-weight:400; font-size:0.8rem;">${year}</span>
+                        </div>
                         <div style="color:var(--accent); margin-top:5px">★ ${m.vote_average ? m.vote_average.toFixed(1) : '0.0'}</div>
                     </div>
                 `;
@@ -614,11 +563,16 @@
 
         function changePage(step) { currentPage += step; fetch24Results(); }
     </script>
-</body>
 
-
+    <script type="text/javascript">var _Hasync= _Hasync|| [];
+    _Hasync.push(['Histats.start', '1,4997366,4,0,0,0,00010000']);
+    _Hasync.push(['Histats.fasi', '1']);
+    _Hasync.push(['Histats.track_hits', '']);
+    (function() {
+    var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+    hs.src = ('//s10.histats.com/js15_as.js');
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+    })();</script>
+    <noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?4997366&101" alt="web page hit counter" border="0"></a></noscript>
+    </body>
 </html>
-
-
-
-
